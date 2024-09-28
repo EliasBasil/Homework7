@@ -4,11 +4,13 @@ public class Main {
         int monthlyDeposit = 15_000;
         int total = 0;
         int monthCounter = 0;
+        double perCent = 0.01;
         while (total < 2_459_000) {
             total += monthlyDeposit;
+            total = (int) (total * (1 + perCent));
             monthCounter++;
+            System.out.println("Месяц " + monthCounter + ", сумма накоплений равна " + total + " рублей");
         }
-        System.out.println("Месяц " + monthCounter + ", сумма накоплений равна " + total + " рублей");
 
         // Задача 2
         int j = 0;
@@ -62,10 +64,8 @@ public class Main {
 
         // Задача 7
         int firstFriday = 5;
-        for (int k = 1; k <= 31; k++) {
-            if ((k - firstFriday) % 7 == 0) {
-                System.out.println("Сегодня пятница, " + k + "-е число. Необходимо подготовить отчет");
-            }
+        for (int k = firstFriday; k <= 31; k += 7) {
+            System.out.println("Сегодня пятница, " + k + "-е число. Необходимо подготовить отчет");
         }
 
         // Задача 8
@@ -73,10 +73,8 @@ public class Main {
         int currentYear = 2024;
         int start = currentYear - 200;
         int end = currentYear + 100;
-        for (int k = start; k <= end; k++) {
-            if (k % cycle == 0) {
-                System.out.println(k);
-            }
+        for (int k = start + cycle - (start % cycle); k <= end; k += cycle) {
+            System.out.println(k);
         }
 
     }
